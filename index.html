@@ -49,6 +49,7 @@
             if (list[i].type == "video") {
                 setTimeout(e => { document.querySelector("#Button1").disabled = false }, list[i].t * 1000);
                 video.src = list[i].s;
+                video.onloadeddata = (e) =>{ video.play();};
             }
         }
         let list = [
@@ -81,7 +82,6 @@
         let video = document.querySelector("video");
         let index = Math.floor(Math.random() * (list.length - 1));
         loadVideo(index);
-        video.play();
 
     </script>
 </body>
