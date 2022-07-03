@@ -11,34 +11,20 @@
 
 <body>
     <div id="PageHeader1">
-        <div id="wb_Image2">
-            <img src="images/san-pedro-belize-express-logo.png" id="Image2" alt="" width="70" height="49">
+        <div id="wb_Image">
+            <img src="images/san-pedro-belize-express-logo.png" class="image" id="Image2" alt="" width="70" height="49">
+            <img src="images/wifi.png" class="image" id="Image3" alt="" width="110" height="78">
         </div>
     </div>
 
-    <!-- <div id="wb_Image1" style="">
-        <img src="Belize-Ferry-Ride.jpeg" id="Image1" alt="" width="363" height="179">
-    </div> -->
-    <div id="wb_Image3">
-        <img src="images/wifi.png" id="Image3" alt="" width="110" height="78">
+
+    <!-- <iframe src="empty.mp3" type=”audio/mp3″ allow=”autoplay” id=”audio” style="display:none;" muted></iframe> -->
+    <div id="wb_MediaPlayer1">
+        <!-- <span class="close" onclick="return close()">&times;</span> -->
+        <video id="MediaPlayer1" controls preload="auto" allow autoplay playsinline>
+        </video>
     </div>
     <input onclick="return Login()" type="submit" id="Button1" class="inactiveButton" name="" value="Login" disabled>
-    <div id="myModal" class="modal">
-
-        <!-- Modal content -->
-        <div class="modal-content">
-            <div id="wb_MediaPlayer1">
-                <iframe src="empty.mp3" type=”audio/mp3″ allow=”autoplay” id=”audio” style="display:none;"
-                    muted></iframe>
-                <!-- <span class="close" onclick="return close()">&times;</span> -->
-                <video id="MediaPlayer1" controls preload="auto" playsinline>
-                </video>
-            </div>
-        </div>
-
-    </div>
-    <div id="PageFooter1">
-    </div>
 
 
     <script>
@@ -97,7 +83,7 @@
         document.querySelector("body").onload = e => {
             modal.style.display = "block";
         };
-        video.oncanplaythrough = (e) => { video.play(); };
+        // video.oncanplaythrough = (e) => { video.play(); };
     </script>
 </body>
 
