@@ -51,9 +51,6 @@ select:focus {
 
 input[type="submit"] {
    padding: 5px;
-}
-
-.Button1 {
    border: 1px solid #2E6DA4;
    border-radius: 4px;
    background-color: #3370B7;

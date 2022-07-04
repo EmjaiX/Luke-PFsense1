@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal</title>
+    <link href="Untitled1.css" rel="stylesheet">
+    <link href="index.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="PageHeader">
+        <div id="wb_Image">
+            <img src="images/san-pedro-belize-express-logo.png" class="image" id="Image2" alt="" width="70" height="49">
+            <img src="images/wifi.png" class="image" id="Image3" alt="" width="110" height="78">
+        </div>
+    </div>
+
+
+    <!-- <iframe src="empty.mp3" type=”audio/mp3″ allow=”autoplay” id=”audio” style="display:none;" muted></iframe> -->
+    <div id="wb_MediaPlayer1">
+        <!-- <span class="close" onclick="return close()">&times;</span> -->
+        <video id="MediaPlayer1" controls preload="auto" allow autoplay playsinline>
+        </video>
+    </div>
+
+    <input onclick="return PlayVideo()" type="submit" id="Button2" class="active" value="Watch Video">
+    <input onclick="return Login()" type="submit" id="Button1" class="inactiveButton" value="Login">
+
+
+    <script>
+        var videoWatched = false;
+        function Login() {
+            if (videoWatched) {
+                window.alert("test done");
+
+            } else {
+                window.alert("Watch Video First");
+            }
+        }
+        function close() {
+            modal.style.display = "none";
+        }
+        function loadVideo(i) {
+            if (list[i].type == "video") {
+                let t = list[i].t * 1000;
+                //Disable modal
+                setTimeout(e => {
+                    modal.style.display = "none";
+                }, t);
+                video.src = list[i].s;
+                // setTimeout(e => {
+                //     document.querySelector("#Button1").disabled = false;
+                //     document.querySelector("input").classList.add('Button1');
+                //     document.querySelector("input").classList.toggle('inactiveButton');
+                // }, t + 1000);
+
+                video.onended = (e) => {
+                    document.querySelector("#Button1").classList.add('Button1');
+                    document.querySelector("#Button1").classList.toggle('inactiveButton');
+                    videoWatched = true;
+                }
+            }
+        }
+        var modal = document.getElementById("myModal");
+        let list = [
+            {
+                t: 50, //time in seconds
+                s: "./a/bewts.mp4", //file name
+                type: "video", //file type
+            }, {
+                t: 32, //time in seconds
+                s: "./a/dgspbe.mp4", //file name
+                type: "video", //file type
+            }, {
+                t: 48, //time in seconds
+                s: "./a/lgwsp.mp4", //file name
+                type: "video", //file type
+            }, {
+                t: 26, //time in seconds
+                s: "./a/spbe.mp4", //file name
+                type: "video", //file type
+            }, {
+                t: 60, //time in seconds
+                s: "./a/spbeg.mp4", //file name
+                type: "video", //file type
+            }, {
+                t: 42, //time in seconds
+                s: "./a/spebwt.mp4", //file name
+                type: "video", //file type
+            }
+        ];
+        let video = document.querySelector("video");
+        let index = Math.floor(Math.random() * (list.length - 1));
+        loadVideo(index);
+        document.querySelector("body").onload = e => {
+
+        };
+        // video.oncanplaythrough = (e) => { video.play(); };
+    </script>
+</body>
+
+</html>
