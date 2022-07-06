@@ -4,65 +4,46 @@
 <head>
     <meta charset="utf-8">
     <title>Login</title>
-    <meta name="generator" content="WYSIWYG Web Builder 17 - https://www.wysiwygwebbuilder.com">
-    <link href="Untitled1.css" rel="stylesheet">
     <link href="index.css" rel="stylesheet">
 </head>
 
 <body>
-    <div id="PageHeader1">
-        <div id="wb_Image2">
-            <img src="images/san-pedro-belize-express-logo.png" id="Image2" alt="" width="70" height="49">
+    <div class="head">
+        <img src="" alt="">
+        <img src="" alt="">
+    </div>
+    <div class="main">
+        <div class="step1" id="step1">
+            <h1>Step 1</h1>
+            <h2>Watch Video</h2>
+            <p>Watch a short video until end.</p>
+            <button onclick="return LoadVideo()">Video</button>
         </div>
-    </div>
+        <div class="step2" id="step2">
+            <h1>Step 2</h1>
+            <h2>Connect to Wi-Fi</h2>
+            <p>Tap/Press "Connect" button after the video to connect.</p>
+            <button id="Button1" class="inactiveButton" onclick="return Login()">Connect</button>
+        </div>
+        <div id="myModal" class="modal">
 
-    <!-- <div id="wb_Image1" style="">
-        <img src="Belize-Ferry-Ride.jpeg" id="Image1" alt="" width="363" height="179">
-    </div> -->
-    <div id="wb_Image3">
-        <img src="images/wifi.png" id="Image3" alt="" width="110" height="78">
-    </div>
-    <input onclick="return Login()" type="submit" id="Button1" class="inactiveButton" name="" value="Login" disabled>
-    <div id="myModal" class="modal">
-
-        <!-- Modal content -->
-        <div class="modal-content">
-            <div id="wb_MediaPlayer1">
-                <iframe src="empty.mp3" type=”audio/mp3″ allow=”autoplay” id=”audio” style="display:none;"
-                    muted></iframe>
-                <!-- <span class="close" onclick="return close()">&times;</span> -->
-                <video id="MediaPlayer1" controls preload="auto" playsinline>
-                </video>
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div id="wb_MediaPlayer1">
+                    <iframe src="empty.mp3" type=”audio/mp3″ allow=”autoplay” id=”audio” style="display:none;"
+                        muted></iframe>
+                    <!-- <span class="close" onclick="return close()">&times;</span> -->
+                    <video id="MediaPlayer1" controls preload="auto" playsinline>
+                    </video>
+                </div>
             </div>
-        </div>
 
-    </div>
-    <div id="PageFooter1">
+        </div>
     </div>
 
 
     <script>
-        function Login() {
-            window.alert("test done");
-        }
-        function close() {
-            modal.style.display = "none";
-        }
-        function loadVideo(i) {
-            if (list[i].type == "video") {
-                let t = list[i].t * 1000;
-                //Disable modal
-                setTimeout(e => {
-                    modal.style.display = "none";
-                }, t);
-                video.src = list[i].s;
-                setTimeout(e => {
-                    document.querySelector("#Button1").disabled = false;
-                    document.querySelector("input").classList.add('Button1');
-                    document.querySelector("input").classList.toggle('inactiveButton');
-                }, t + 1000);
-            }
-        }
+
         var modal = document.getElementById("myModal");
         let list = [
             {
@@ -92,12 +73,35 @@
             }
         ];
         let video = document.querySelector("video");
-        let index = Math.floor(Math.random() * (list.length - 1));
-        loadVideo(index);
-        document.querySelector("body").onload = e => {
+
+        function Login() {
+            window.alert("test done");
+        }
+        function close() {
+            modal.style.display = "none";
+        }
+        function LoadVideo() {
             modal.style.display = "block";
-        };
-        video.oncanplaythrough = (e) => { video.play(); };
+            let index = Math.floor(Math.random() * (list.length - 1));
+            loadVideo(index);
+        }
+        function loadVideo(i) {
+            if (list[i].type == "video") {
+                let t = list[i].t * 1000;
+                //Disable modal
+                setTimeout(e => {
+                    modal.style.display = "none";
+                }, t);
+                video.src = list[i].s;
+                video.onended = (e) => {
+                    // document.querySelector("#Button1").classList.add('Button1');
+                    document.querySelector("#Button1").classList.toggle('inactiveButton');
+                    videoWatched = true;
+                    modal.style.display = "none";
+                }
+                video.oncanplaythrough = (e) => { video.play(); };
+            }
+        }
     </script>
 </body>
 
