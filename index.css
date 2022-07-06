@@ -88,10 +88,12 @@ select:focus {
    width: 100%;
    height: 100%;
 }
-input[type="submit"]{
+
+input[type="submit"] {
    padding: 5px;
 }
-.Button1 {
+
+Button {
    border: 1px solid #2E6DA4;
    border-radius: 4px;
    background-color: #3370B7;
@@ -108,9 +110,11 @@ input[type="submit"]{
    width: 126px;
    height: 59px;
 }
-.Button1:hover{
+
+Button:hover {
    cursor: pointer;
 }
+
 .inactiveButton {
    border: 1px solid #2E6DA4;
    border-radius: 4px;
@@ -203,9 +207,11 @@ input[type="submit"]{
 #wb_MediaPlayer1 {
    display: flex;
 }
-video{
+
+video {
    z-index: 3;
 }
+
 /* The Close Button */
 .close {
    margin: auto;
