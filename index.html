@@ -17,7 +17,10 @@
             <h1>Step 1</h1>
             <h2>Watch Video</h2>
             <p>Watch a short video until end.</p>
-            <button onclick="return LoadVideo()">Video</button>
+            <div id="wb_MediaPlayer1">
+                <video id="MediaPlayer1" controls preload="auto" playsinline>
+                </video>
+            </div>
         </div>
         <div class="step2" id="step2">
             <h1>Step 2</h1>
@@ -25,20 +28,8 @@
             <p>Tap/Press "Connect" button after the video to connect.</p>
             <button id="Button1" class="inactiveButton" onclick="return Login()">Connect</button>
         </div>
-        <div id="myModal" class="modal">
 
-            <!-- Modal content -->
-            <div class="modal-content">
-                <div id="wb_MediaPlayer1">
-                    <iframe src="empty.mp3" type=”audio/mp3″ allow=”autoplay” id=”audio” style="display:none;"
-                        muted></iframe>
-                    <!-- <span class="close" onclick="return close()">&times;</span> -->
-                    <video id="MediaPlayer1" controls preload="auto" playsinline>
-                    </video>
-                </div>
-            </div>
 
-        </div>
     </div>
 
 
@@ -73,15 +64,22 @@
             }
         ];
         let video = document.querySelector("video");
+        var videoWatched = false;
+        var videoTimeElaped = false;
+
 
         function Login() {
-            window.alert("test done");
+            if (videoTimeElaped && videoWatched) {
+                window.alert("Tahnks for watching");
+            } else {
+                window.alert("Please watch the video!!");
+
+            }
         }
         function close() {
             modal.style.display = "none";
         }
         function LoadVideo() {
-            modal.style.display = "block";
             let index = Math.floor(Math.random() * (list.length - 1));
             loadVideo(index);
         }
@@ -90,18 +88,18 @@
                 let t = list[i].t * 1000;
                 //Disable modal
                 setTimeout(e => {
-                    modal.style.display = "none";
+                    videoTimeElaped = true;
                 }, t);
                 video.src = list[i].s;
                 video.onended = (e) => {
-                    // document.querySelector("#Button1").classList.add('Button1');
-                    document.querySelector("#Button1").classList.toggle('inactiveButton');
+                    document.querySelector("#Button1").classList.remove("inactiveButton");
                     videoWatched = true;
                     modal.style.display = "none";
                 }
-                video.oncanplaythrough = (e) => { video.play(); };
+                // video.oncanplaythrough = (e) => { video.play(); };
             }
         }
+        LoadVideo();
     </script>
 </body>
 
