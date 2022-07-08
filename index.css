@@ -15,6 +15,27 @@ body>* {
    margin: auto;
 }
 
+.head {
+   width: 50vw;
+   display: flex;
+   flex-direction: row;
+}
+
+.head img {
+   width: 20vw;
+   margin: auto;
+}
+
+.schedule {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+}
+
+.schedule img {
+   width: 20vw;
+}
+
 a {
    color: #0000FF;
    text-decoration: underline;
@@ -39,44 +60,7 @@ select:focus {
    outline: none;
 }
 
-#PageHeader1 {
-   background-color: #F5F5F5;
-   background-image: none;
-   border-radius: 0px;
-   box-sizing: border-box;
-   display: flex;
-   width: 100%;
-   height: 71px;
-}
 
-#wb_Image1 {
-   vertical-align: top;
-
-   left: 10px;
-   top: 72px;
-   width: 363px;
-   height: 178px;
-}
-
-#Image1 {
-   border: 0px solid #000000;
-   border-radius: 0px;
-   padding: 0;
-   margin: 0;
-   left: 0;
-   top: 0;
-   width: 100%;
-   height: 100%;
-}
-
-#wb_Image3 {
-   vertical-align: top;
-
-   left: 136px;
-   top: 281px;
-   width: 110px;
-   height: 77px;
-}
 
 #Image3 {
    border: 0px solid #000000;
@@ -154,10 +138,8 @@ Button:hover {
 }
 
 #MediaPlayer1 {
-   left: 0;
-   top: 0;
-   width: 100%;
-   height: 100%;
+   margin: auto;
+   width: 70vw;
 }
 
 #PageFooter1 {
